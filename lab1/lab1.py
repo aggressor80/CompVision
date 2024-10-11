@@ -4,7 +4,7 @@ import numpy as np
 img = cv2.imread('photos/text2.jpg')
 height, width, channels = img.shape
 
-# Конвертация изображения в черно-белое
+# convert image into b-w
 def black_white(img):
     bw_img = np.zeros((height, width), dtype=np.uint8)
     for i in range(height):
@@ -14,7 +14,7 @@ def black_white(img):
             bw_img[i][j] = gray
     return bw_img
 
-# Метод Отсу
+# method Otsu
 def otsu_method(bw_img):
     H = np.zeros(256)
     for i in range(height):
@@ -59,7 +59,7 @@ def otsu_method(bw_img):
 
     return t_val
 
-# Создание бинарной маски для изображения
+# create binary mask for image
 def make_mask(t, blacknwhite_img):
     for i in range(height):
         for j in range(width):
